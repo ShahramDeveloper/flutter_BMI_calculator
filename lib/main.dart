@@ -1,3 +1,5 @@
+import 'package:bmi_calculator_app/widgets/background_shape_left.dart';
+import 'package:bmi_calculator_app/widgets/background_shape_right.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,6 +11,18 @@ class Application extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: SafeArea(
+          child: Column(
+            children: [
+              RightShape(),
+              LeftShape(),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
