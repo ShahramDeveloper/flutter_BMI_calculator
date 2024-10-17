@@ -19,3 +19,11 @@ dev_dependencies:
 flutter:
 
   uses-material-design: true
+
+  assets:
+    - images/
+
+  fonts:
+    - family: dana
+      fonts:
+        - asset: fonts/dm.ttf
