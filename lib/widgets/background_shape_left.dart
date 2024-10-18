@@ -1,7 +1,10 @@
+import 'package:bmi_calculator_app/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class LeftShape extends StatelessWidget {
-  const LeftShape({super.key});
+  final double width;
+
+  const LeftShape({super.key, this.width = 0});
 
   @override
   Widget build(BuildContext context) {
@@ -10,12 +13,11 @@ class LeftShape extends StatelessWidget {
       children: [
         Container(
           height: 50,
-          width: 200,
+          width: width,
           decoration: BoxDecoration(
-            color: Colors.green,
+            color: greenBackground,
             borderRadius: BorderRadius.only(
               topRight: Radius.circular(20),
-              bottomRight: Radius.circular(20),
             ),
           ),
         ),

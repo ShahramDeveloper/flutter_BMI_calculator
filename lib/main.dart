@@ -17,8 +17,12 @@ class Application extends StatelessWidget {
         body: SafeArea(
           child: Column(
             children: [
-              RightShape(),
-              LeftShape(),
+              RightShape(
+                width: 120,
+              ),
+              LeftShape(
+                width: 400,
+              ),
             ],
           ),
         ),
