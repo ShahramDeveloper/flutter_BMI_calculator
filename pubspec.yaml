@@ -10,6 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  hexcolor: ^3.0.1
+
   cupertino_icons: ^1.0.8
 
 dev_dependencies:
