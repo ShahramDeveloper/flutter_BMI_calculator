@@ -17,6 +17,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   double resultBMI = 0;
   String resultText = '';
+  double widthGood = 100;
+  double widthBad = 100;
 
   @override
   Widget build(BuildContext context) {
@@ -90,10 +92,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 setState(() {
                   resultBMI = weight / (height * height);
                   if (resultBMI > 25) {
+                    widthBad = 300;
+                    widthGood = 50;
                     resultText = 'شما اضافه وزن دارید';
                   } else if (resultBMI >= 18.5 && resultBMI <= 25) {
+                    widthBad = 50;
+                    widthGood = 300;
                     resultText = 'وزن شما نرمال است';
                   } else {
+                    widthBad = 10;
+                    widthGood = 10;
                     resultText = 'شما کمتر از حد نرمال است';
                   }
                 });
@@ -125,13 +133,13 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 60,
             ),
             LeftShape(
-              width: 200,
+              width: widthGood,
             ),
             SizedBox(
               height: 15,
             ),
             RightShape(
-              width: 200,
+              width: widthBad,
             )
           ],
         ),
