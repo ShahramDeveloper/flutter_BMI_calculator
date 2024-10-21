@@ -12,8 +12,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final widthController = TextEditingController();
+  final weightController = TextEditingController();
   final heightController = TextEditingController();
+
+  double resultBMI = 0;
+  String resultText = '';
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Container(
                   width: 130,
                   child: TextField(
-                    controller: widthController,
+                    controller: weightController,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 30,
@@ -80,7 +83,21 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 40,
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                final weight = double.parse(weightController.text);
+                final height = double.parse(heightController.text);
+
+                setState(() {
+                  resultBMI = weight / (height * height);
+                  if (resultBMI > 25) {
+                    resultText = 'شما اضافه وزن دارید';
+                  } else if (resultBMI >= 18.5 && resultBMI <= 25) {
+                    resultText = 'وزن شما نرمال است';
+                  } else {
+                    resultText = 'شما کمتر از حد نرمال است';
+                  }
+                });
+              },
               child: Text(
                 '!محاسبه کن',
                 style: TextStyle(
@@ -93,11 +110,11 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 40,
             ),
             Text(
-              '۳۱',
+              resultBMI.toStringAsFixed(2),
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 64),
             ),
             Text(
-              'شما اضافه وزن دارید!',
+              resultText,
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
